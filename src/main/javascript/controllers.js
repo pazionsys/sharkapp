@@ -180,14 +180,8 @@ function SharkDetailPageCtrl($scope,$http,$routeParams,$location) {
 	}
   $scope.dataProvider = new DataProvider($http,$scope);
   $scope.dataProvider.getShark($routeParams.id);
-  
-  //$scope.shark = sharksScope.getSharkById($routeParams.id);
-  
-
-  
   $scope.carouselInterval = 5000;
 
-  
   $(document).ready(function() {
  
   $scope.initializeMap=function()
@@ -256,7 +250,7 @@ function SeaCtrl($scope, $http)
 }
 
 
-function SharksCtrl($scope,$http) {
+function SharksCtrl($scope,$http, $location) {
 	$scope.search;	
     $scope.dataProvider = new DataProvider($http,$scope);
     $scope.dataProvider.getAllSharks();	
@@ -282,6 +276,11 @@ function SharksCtrl($scope,$http) {
 			}
 		}
 	};
+	
+	$scope.navigate = function (location) 
+	{
+        $location.path('/'+location);
+    };	
 	
 	sharksScope=$scope;  
 }

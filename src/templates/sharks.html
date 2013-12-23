@@ -6,7 +6,7 @@
   <h3 class="topcoat-list__header">sharks found:</h3>
   <ul class="topcoat-list__container">
 	<li ng-repeat="shark in sharks |  limitTo: 7 |  filter:search" class="topcoat-list__item">
-	<a href="/#/detail/{{shark.id}}">
+	<a ng-click="navigate('detail/'+shark.id);">
 		<img ng-src="{{shark.src}}" />
 		<div>
 			<h5> {{shark.name}} </h5>
