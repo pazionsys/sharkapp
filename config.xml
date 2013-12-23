@@ -16,9 +16,6 @@
 		</author>
 		<!-- ios -->		
 		<!-- android -->
-		<gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="ldpi" />
-		<gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="mdpi" />
-		<gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="hdpi" />
-		<gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+		<gap:splash src="splash/default.png" />
 
 	</widget>
