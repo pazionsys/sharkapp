@@ -178,23 +178,27 @@ function SharkDetailPageCtrl($scope,$http,$routeParams,$location) {
 	{
 		angular.bootstrap(document.getElementById("map"), ['app.ui-map']);
 	}
+  $scope.dataProvider = new DataProvider($http,$scope);
+  $scope.dataProvider.getShark($routeParams.id);
   
-  $scope.shark = sharksScope.getSharkById($routeParams.id);
+  //$scope.shark = sharksScope.getSharkById($routeParams.id);
   
-  var seas = $scope.shark.seas;
-  seas = seas.substr(1, seas.length-2);
-  sharkDetailSeaIdsArray = seas.split(',');
+
   
   $scope.carouselInterval = 5000;
-  updateCoreSemaphore();
-  mapConstructor = initializeSharkDetailMap;
-  updateCoreSemaphore();
-  
-  
-  
-  
+
   
   $(document).ready(function() {
+ 
+  $scope.initializeMap=function()
+  {
+    var seas = $scope.shark.seas;
+	seas = seas.substr(1, seas.length-2);
+	sharkDetailSeaIdsArray = seas.split(',');
+	updateCoreSemaphore();
+	mapConstructor = initializeSharkDetailMap;
+	updateCoreSemaphore();      
+  }
  
   $scope.carousel = $("#carousel").owlCarousel({
  
@@ -217,7 +221,6 @@ function SharkDetailPageCtrl($scope,$http,$routeParams,$location) {
 	
 
   }
-  $scope.dataProvider = new DataProvider($http,$scope);
   $scope.dataProvider.getCarouselImages($routeParams.id);
  
 });

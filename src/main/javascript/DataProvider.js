@@ -21,11 +21,42 @@ function DataProvider($http,$scope) {
             data: params,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
-			;
             self.handleGetAllSharksRequest(data.Sharks,$scope);
         });
     };
+	
+	this.getShark = function(sharkId) {		
+        var params = $.param({requestType:"getshark",id:sharkId});
+				
+        var self = this;
+		
+        $http({
+            url: serverRestUrl,
+            method: "POST",
+            data: params,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data) {
+            self.handleGetSharkRequest(data.Shark,$scope);
+        });
+    };
 
+	
+	this.handleGetSharkRequest=function(sharkData,$scope) {
+        if(sharkData) {
+			var shark = new Shark(sharkData.sharkId, sharkData.name, serverUrl+"/"+imagesFolderName+"/"+sharkData.imageURL, sharkData.description);
+			shark.setSeas(sharkData.seas);
+			shark.setSize(sharkData.size);
+			shark.setDiet(sharkData.diet);
+			shark.setAge(sharkData.age);
+			shark.setOtherNames(sharkData.otherNames);
+
+			$scope.shark = shark;
+			$scope.initializeMap();
+
+        } else {
+            // fout afvang indien data niet binnenkomt
+        }
+    };
 
     this.handleGetAllSharksRequest=function(sharkData,$scope) {
         if(sharkData) {

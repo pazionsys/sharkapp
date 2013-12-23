@@ -92,7 +92,23 @@ class DataProvider{
         return '{"News":'.json_encode($news).'}';
     }
 	
-	
+	public function getShark($id)
+    {
+        $getSharkQuery = "SELECT * FROM $this->sharktable_name WHERE sharkId = '$id'";
+		$shark = null;
+        if($result = $this->db->query($getSharkQuery))
+        {
+            while($row = $result->fetch_assoc() )
+            {
+                $shark = $row;
+            }
+			
+            $result->close();
+        }
+        $this->db->close();
+
+        return '{"Shark":'.json_encode($shark).'}';
+    }
 	
 	public function getSharkCarousel($id)
     {
@@ -242,7 +258,7 @@ else if($requestType=="getallseas")
 else if($requestType=="getseakml")
 {
 	header('Content-type: application/vnd.google-earth.kml+xml');
-	echo($dataProvider->getSeaKml($_GET['id']));
+	echo($dataProvider->getSeaKml($id));
 }
 else if($requestType=="getsharksbysea")
 {
@@ -256,10 +272,12 @@ else if($requestType=="getcarousel")
 {
 	echo($dataProvider->getSharkCarousel($id));
 }
+else if($requestType=="getshark")
+{
+	echo($dataProvider->getShark($id));
+}
 else if($requestType=="getinfo")
 {
 	$dataProvider->getInfo();
 }
-
-
 ?>
