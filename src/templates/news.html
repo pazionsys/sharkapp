@@ -1,0 +1,14 @@
+<div class="topcoat-list">
+  <h3 class="topcoat-list__header">sharknewz.com</h3>
+  <ul class="topcoat-list__container">
+    <li class="topcoat-list__item autoheight" " ng-repeat="newsitem in news" >
+		<a target='_blank' href="http://www.sharknewz.com/{{newsitem.title}}/" >
+		<h2>{{newsitem.title}}</h2>
+			<p>
+				{{newsitem.content}} 
+				&nbsp;<span>read more &rarr;</span>
+			</p>
+		</a>
+    </li>
+  </ul>
+</div>

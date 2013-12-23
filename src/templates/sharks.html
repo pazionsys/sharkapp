@@ -1,0 +1,18 @@
+<nav>
+    <input type="text" ng-model="search.name" placeholder="search for a shark" class="topcoat-search-input" >
+</nav>
+
+<div class="topcoat-list" ng-controller="SharksCtrl">
+  <h3 class="topcoat-list__header">sharks found:</h3>
+  <ul class="topcoat-list__container">
+	<li ng-repeat="shark in sharks |  limitTo: 7 |  filter:search" class="topcoat-list__item">
+	<a href="/#/detail/{{shark.id}}">
+		<img ng-src="{{shark.src}}" />
+		<div>
+			<h5> {{shark.name}} </h5>
+			{{shark.description}}
+		</div>
+	</a>
+	</li>
+  </ul>
+</div>

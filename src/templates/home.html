@@ -1,0 +1,34 @@
+	<nav>
+		<table cellpadding="0" cellspacing="0" width="100%" >
+		<tr>
+			<td align="left" with="49%"><div ng-controller="SeaCtrl"><input id="placesearch"  type="text" ng-model="place" placeholder="enter location" class="topcoat-search-input" ></div></td>
+			<td align="center" with="2%">&nbsp;OR&nbsp;</td>
+			<td align="right" with="49%">
+				<select class="topcoat-button--large" ng-model="sea" ng-options="c.name for c in seas" ng-change="seaChange()" ng-controller="SeaCtrl">
+					<option value="">select a sea</option>
+				</select>
+			</td>
+		</tr>
+		</table>
+	</nav>
+
+	<div class="datatable">
+		<div class="topcoat-list" ng-controller="SharksCtrl">
+		  <h3 class="topcoat-list__header">{{sharks.length}} sharks found in sea : {{sea}}</h3>
+		  <ul class="topcoat-list__container">
+			<li ng-repeat="shark in sharks |  limitTo: 7 |  filter:search" class="topcoat-list__item">
+			<a href="/#/detail/{{shark.id}}">
+				<img ng-src="{{shark.src}}" />
+				<div>
+					<h5> {{shark.name}} </h5>
+					{{shark.description}}
+				</div>
+			</a>
+			</li>
+		  </ul>
+		</div>
+
+		<section class="map" id="map" ng-controller="MapCtrl" >
+			<div ui-map="myMap" ui-options="mapOptions" class="map-canvas" ui-event="{'map-idle' : 'onMapIdle()'}"></div>
+		</section>
+	</div>

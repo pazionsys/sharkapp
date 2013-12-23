@@ -1,0 +1,73 @@
+@charset "iso-8859-1";
+/* CSS Document */
+
+/** global css  **/
+html, body { height:100% margin: 0; }
+body { font-size: 100%; 	color: #D53030;}
+h2, h4{	margin: 10px 0 0 0;  text-align:left;	color:#D53030; font-size: 110%;}
+h5{padding: 0; margin: 0; font-size: 105%; line-height: 1.25em;} 	
+p{padding: 0; margin: 0;}
+
+.row, .col { overflow: hidden; position: absolute; }
+.row { left: 0; right: 0; }
+.col { top: 0; bottom: 0; }
+.scroll-x { overflow-x: auto; }
+.scroll-y { overflow-y: auto; }
+.center{ display:block; margin:0px auto; }
+
+header, .topcoat-navigation-bar{height: 40px; top: 0; }
+	h1, .topcoat-navigation-bar__title {font-size: 1em; font-weight: bold; height: 40px; line-height: 40px; margin: 0;}
+	.topcoat-navigation-bar__item{ height: 50px; width: 100px;}
+
+nav { padding: 0 0.25em;  width: 100%; }
+nav table{padding-right: 0.5em;  }
+	nav .topcoat-search-input{ padding: 0 0 0 2em; height: 2.25em; line-height: 2em; width: 100%; }
+	nav span, nav div, nav .topcoat-button--large, nav select{float: left; line-height: 1.5em; margin: 0 0 0.125em 0; width: 100%}
+
+.content{ top: 40px; bottom: 40px; padding: 0.125em 0; }
+	/* shark listing */
+	.topcoat-list__container a{ width: 100%;  color: #D53030; text-decoration: none; display: block;}
+	.topcoat-list__item div, .topcoat-list__item p {color: #000; padding: 3px; height: 74px;}
+	.topcoat-list__item p span { color: #D53030; }
+	.topcoat-list__item{ padding: 0.25em; margin: 0; height: 77px;} 
+	.topcoat-list__item img{ float: left; width: 74px; line-height: 76px; height: 76px;	padding-right: 0.5em; }
+	
+	/* sharknewz */
+	.topcoat-list__container .autoheight{height: auto; } 
+	.topcoat-list__container .topcoat-list__item p {padding-left: 0;height: auto;}
+
+	/* map */
+	#map {  margin: 0 auto; }
+	.map-canvas { 	margin: 0 0.25em; width: 100%-1em; height:150px; }
+
+	/* info */
+	.info{ font-size: 90%; color: #000; padding: 0 10px;}
+	.info p, ul{font-size: 80%; margin-bottom: 10px;}
+	.info ul { list-style: none; margin: 0; padding: 0;}
+	
+footer { height: 40px; bottom: 0;}
+	.topcoat-button-bar{ height: 40px; font-size: 1em; padding: 0; width: 100%;}
+	.topcoat-button-bar__item{ width: 25%; height: 40px; }
+	.topcoat-button-bar__button{ padding: 0!important; width: 100%;	 height: 40px; line-height: 40px; text-align: center;}	
+
+/** css fix for dom load order. Any elements loaded past the google maps element crash. These table css properties switch the map into the correct graphical position **/
+.datatable{  width: 100%; display: table; }
+.belowmap {	padding: 0 0.25em; display: table-footer-group; }
+.map{ 	display: table-header-group; }
+
+.item{	padding-top:3px;	clear:both;}
+.item div{	float:left;	padding:5px;}
+.item h5{	color:#D53030;    font-size:20px;	margin-top:0px;	margin-bottom:0px;}
+.news h5{	padding-top:0px;	padding-bottom:0px;	padding-left:5px;}
+.item img{	float:left;}
+
+h2#sharkname{ width: auto; text-align: center; margin: 0 auto; text-transform: uppercase;}
+#backbutton{ display: none; height: 30px; line-height: 30px; font-size: 30px; position: absolute; left: 2px; top: 4px; padding: 0 7px; }
+
+.sharkdetailstable{	width:100%;	color:#D53030;}
+.sharkdetailstable tr td:first-child{	color: #000; width:120px;}
+
+#carousel .item{  border-right: 1px solid silver;}
+#carousel .item img{  display: block;  width: 100%;  height: auto;}
+					
+			

@@ -1,0 +1,39 @@
+<h2 id='sharkname'>{{shark.name}}</h2>
+<div class="datatable">
+	<section class="belowmap">
+		<div id="carousel" class="owl-carousel owl-theme"></div>
+		
+		<div>
+			<table class="sharkdetailstable" width="100%">
+				<tr>
+					<td><strong>size</strong></td>
+					<td width="*">{{shark.size}}</td>
+				</tr>
+				<tr>
+					<td><strong>diet</strong></td>
+					<td>{{shark.diet}}</td>
+				</tr>
+				<tr>
+					<td><strong>avg. age</strong></td>
+					<td>{{shark.age}}</td>
+				</tr>
+				<tr>
+					<td><strong>aliases</strong></td>
+					<td>{{shark.otherNames}}</td>
+				</tr>
+				<tr><td colspan="2"></td></tr>
+				<tr>
+					<td colspan="2">
+					{{shark.description}}
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+	</section>
+
+	<section class="map" id="map" ng-controller="MapCtrl" >
+		<div ui-map="myMap" ui-options="mapOptions" class="map-canvas" ui-event="{'map-idle' : 'onMapIdle()'}"></div>
+	</section>
+
+</div>
